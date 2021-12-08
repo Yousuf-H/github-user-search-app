@@ -7,11 +7,17 @@ export const GlobalStyles = createGlobalStyle`
 `
 export const lightMode = {
   body: '#F6F8FF',
-  fontColor: '#000'
+  fontColor: '#000',
+  buttonColor: '#0079FF',
+  placeholderColor: '#4B6A9B',
+  SearchContainerColor: '#FEFEFE'
 }
 
 export const darkMode = {
   body: '#141D2F',
-  fontColor: '#fff'
+  fontColor: '#FFF',
+  buttonColor: '#0079FF',
+  placeholderColor: '#FFF',
+  SearchContainerColor: '#1E2A47'
 }
 

@@ -1,12 +1,24 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  border: 2px red solid;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`
+export const Wrapper = styled.div`
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+export const H1 = styled.h1`
+  font-size: 13px;
+  text-transform: uppercase;
 `
 export const ThemeIcon = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 20px;
+  height:20px;
+  cursor: pointer;
 `
 

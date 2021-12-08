@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles, lightMode, darkMode } from './themes'
-import { StyledApp } from './Styles/App.styled'
-import ThemeToggle from './components/ThemeToggle';
-
-  
+import { StyledApp } from './Styles/App.styled'  
+import Display from './components/Display';
 
 function App() {
   const [darkTheme, setdarkTheme] = useState(false)
@@ -18,7 +16,7 @@ function App() {
     <ThemeProvider theme={darkTheme ?  darkMode : lightMode}>
       <GlobalStyles />
       <StyledApp>
-        <ThemeToggle theme = {darkTheme} themeToggler={themeToggler}/>
+        <Display theme = {darkTheme} themeToggler={themeToggler}/>
       </StyledApp>
     </ThemeProvider>
   )
