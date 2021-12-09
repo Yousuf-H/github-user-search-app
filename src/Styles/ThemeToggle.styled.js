@@ -15,10 +15,12 @@ export const Wrapper = styled.div`
 export const H1 = styled.h1`
   font-size: 13px;
   text-transform: uppercase;
+  color: ${props => props.theme.blackShade};
 `
 export const ThemeIcon = styled.img`
   width: 20px;
   height:20px;
   cursor: pointer;
+  color: green;
 `
 

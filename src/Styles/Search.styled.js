@@ -8,6 +8,7 @@ export const Container = styled.div`
   background-color: ${props => props.theme.SearchContainerColor};
   padding: 20px;
   border-radius: 15px;
+  box-shadow: 0px 5px 10px ${props => props.theme.searchBoxShadow};
 `
 
 export const Left = styled.div`
@@ -59,8 +60,8 @@ export const SearchButton = styled.button`
   height: 50px;
   border: none;
   border-radius: 10px;
-  background-color: ${props => props.theme.buttonColor};
-  color: ${props => props.theme.fontColor};;
+  background-color: ${props => props.theme.buttonBgColor};
+  color: ${props => props.theme.buttonColor};;
   font-size: 16px;
 `
 

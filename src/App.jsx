@@ -5,18 +5,18 @@ import { StyledApp } from './Styles/App.styled'
 import Display from './components/Display';
 
 function App() {
-  const [darkTheme, setdarkTheme] = useState(false)
+  const [theme, setTheme] = useState(false)
 
   // Toggle Function
   const themeToggler = () => {
-    setdarkTheme(!darkTheme)
+    setTheme(!theme)
   }
 
   return (
-    <ThemeProvider theme={darkTheme ?  darkMode : lightMode}>
+    <ThemeProvider theme={theme ?  darkMode : lightMode}>
       <GlobalStyles />
       <StyledApp>
-        <Display theme = {darkTheme} themeToggler={themeToggler}/>
+        <Display theme = {theme} themeToggler={themeToggler}/>
       </StyledApp>
     </ThemeProvider>
   )
