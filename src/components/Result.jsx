@@ -5,27 +5,35 @@ import {ReactComponent as Location }from '../assets/icon-location.svg'
 import Twitter from '../assets/icon-twitter.svg'
 import Website from '../assets/icon-website.svg'
 import Company from '../assets/icon-company.svg'
+import { connect } from 'react-redux'
+import moment from 'moment'
 
-const Result = () => {
+const Result = (props) => {
+  const { githubUser } = props
+
   return (
     <Container>
+      {githubUser.isLoading && 'Loading'}
       <Top>
         {/* Profile Image */}
         <ProfileImgContainer>
-          <ProfileImg src={ProfilePic} alt='Profile-image'/>
+          <ProfileImg src={githubUser.payload.avatar_url ? githubUser.payload.avatar_url : ProfilePic} alt='Profile-image'/>
         </ProfileImgContainer>
         
         {/* Profile Info */}
         <ProfileWrapper>
           <TitleWrapper>
-            <UserName>Yousuf</UserName>
-            <Date>Joined 25 Jan 2018</Date>
+            <UserName>{githubUser.payload.name ? githubUser.payload.name : 'The Octocat'}</UserName>
+            <Date>
+              Joined {githubUser.payload.created_at ? 
+              moment(githubUser.payload.created_at).format('Do MMMM YYYY')
+              : 
+              '25 Jan 2011'}
+            </Date>
           </TitleWrapper>
-          <AccountName>@yousuf</AccountName>
+          <AccountName>@{githubUser.payload.login ? githubUser.payload.login  :'octocat'}</AccountName>
           <Description>
-            Lorem ipsum dolor sit amet, consectetuer 
-            adipiscing elit. Donec odio. Quisque volutpat 
-            mattis eros.
+            {githubUser.payload.bio ? githubUser.payload.bio : 'This profile has no bio'}
           </Description>
         </ProfileWrapper>
       </Top>
@@ -35,34 +43,34 @@ const Result = () => {
         <StatsWrapper>
           <Repo>
             <span>Repo</span>
-            <span>8</span>
+            <span>{githubUser.payload.public_repos}</span>
           </Repo>
           <Followers>
             <span>Followers</span>
-            <span>3000</span>
+            <span>{githubUser.payload.followers}</span>
           </Followers>
           <Following>
             <span>Following</span>
-            <span>38</span>
+            <span>{githubUser.payload.following}</span>
           </Following>
         </StatsWrapper>
 
         <UserInfoWrapper>
           <UserInfo>
             <Location/>
-            <Info>Wellington</Info>
+            <Info>{githubUser.payload.location ? githubUser.payload.location : 'Not Available'}</Info>
           </UserInfo>
           <UserInfo>
             <Icon src={Twitter}/>
-            <Info>Not Avalabile</Info>
+            <Info>{githubUser.payload.twitter_username ? githubUser.payload.twitter_username : 'Not Available'}</Info>
           </UserInfo>
           <UserInfo>
             <Icon src={Website}/>
-            <Info>www.github.com</Info>
+            <Info>{githubUser.payload.html_url ? githubUser.payload.html_url : 'Not Available'}</Info>
           </UserInfo>
           <UserInfo>
           <Icon src={Company}/>
-            <Info>AGithub</Info>
+            <Info>{githubUser.payload.company ? githubUser.payload.company : 'Not Available'}</Info>
             </UserInfo>
         </UserInfoWrapper>
       </Bottom>
@@ -70,6 +78,13 @@ const Result = () => {
   )
 }
 
-export default Result
+const mapStateToProps = ({ githubUser }) => {
+  return {
+    githubUser
+  }
+}
+
+export default connect(mapStateToProps)(Result)
+
 
 

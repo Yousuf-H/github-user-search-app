@@ -63,5 +63,10 @@ export const SearchButton = styled.button`
   background-color: ${props => props.theme.buttonBgColor};
   color: ${props => props.theme.buttonColor};;
   font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: '#60ABFF';
+  }
 `
 

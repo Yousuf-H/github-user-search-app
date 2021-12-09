@@ -1,23 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, SearchIcon, SearchInput, Error, SearchButton, Left, Right } from '../Styles/Search.styled';
 import SearchSVG from '../assets/icon-search.svg'
+import { getUserAction } from '../redux/actions/userInfoAction'
+import { connect } from 'react-redux'
 
-const Search = () => {
+const Search = (props) => {
+  const [searchValue, setSearchValue] = useState('')
+  const { githubUser, dispatch } = props
+
+  const changeHandler = (e) => {
+    setSearchValue(e.target.value)
+  }
+
+  // useEffect(() => {
+  //   dispatch(getUserAction(searchValue))
+  // }, [searchValue, dispatch])
+
+  const clickhandler = () => {
+    if (searchValue){
+      dispatch(getUserAction(searchValue))
+    }
+  }
+
   return (
     <Container>
       {/* Left */}
       <Left>
         <SearchIcon src={SearchSVG}/>
-        <SearchInput placeholder='Search Github username...'/>
+        <SearchInput placeholder='Search Github username...' onChange={(e) => changeHandler(e)} value={searchValue} required/>
       </Left>
       
       {/* Right */}
       <Right>
-        <Error>No results</Error>
-        <SearchButton>Search</SearchButton>
+        <Error>{githubUser.errMessage && 'No results'}</Error>
+        <SearchButton onClick={clickhandler}>Search</SearchButton>
       </Right>
     </Container>
   );
 };
 
-export default Search;
+const mapStateToProps = ({ githubUser }) => {
+  return {
+    githubUser
+  }
+}
+
+export default connect(mapStateToProps)(Search)

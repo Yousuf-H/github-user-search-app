@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 444px;
   width: 100%;
   background-color: ${props => props.theme.ResultBackgroundColor};
-  padding: 30px;
+  padding: 35px;
   border-radius: 15px;
 `
 export const Top = styled.div`
@@ -18,17 +18,33 @@ export const ProfileImgContainer = styled.div`
   /* border: 3px red solid; */
   width: 117px;
   height: 117px;
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.2);
+    transition: all .3s linear;
+    border-radius: 50%;
+  }
 `
 export const ProfileImg = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
+  
+
 `
 
 export const ProfileWrapper = styled.div`
   /* border: 3px red solid; */
-  width: 80%;
+  width: 78%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -75,7 +91,7 @@ export const Bottom = styled.div`
 `
 export const StatsWrapper = styled.div`
   /* border: 3px black solid; */
-  width: 80%;
+  width: 78%;
   display: flex;
   background-color: ${props => props.theme.body};
   margin-top: 30px;
@@ -125,7 +141,7 @@ span {
 // ----
 export const UserInfoWrapper = styled.div`
   /* border: 3px blue solid; */
-  width: 80%;
+  width: 78%;
   display: grid;
   grid-template-columns: auto auto;
   margin-top: 30px;
