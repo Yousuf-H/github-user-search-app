@@ -7,6 +7,7 @@ export const Container = styled.div`
   background-color: ${props => props.theme.ResultBackgroundColor};
   padding: 35px;
   border-radius: 15px;
+  position: relative;
 `
 export const Top = styled.div`
   /* border: 3px green solid; */
