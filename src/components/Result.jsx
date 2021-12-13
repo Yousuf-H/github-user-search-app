@@ -7,13 +7,14 @@ import Website from '../assets/icon-website.svg'
 import Company from '../assets/icon-company.svg'
 import { connect } from 'react-redux'
 import moment from 'moment'
+import Loading from './Loading'
 
 const Result = (props) => {
   const { githubUser } = props
 
   return (
     <Container>
-      {githubUser.isLoading && 'Loading'}
+      {githubUser.isLoading && <Loading />}
       <Top>
         {/* Profile Image */}
         <ProfileImgContainer>
