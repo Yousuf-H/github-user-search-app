@@ -2,9 +2,9 @@ import React from 'react'
 import { Container, ProfileImgContainer, ProfileImg, Top, ProfileWrapper, TitleWrapper, UserName, Date, AccountName, Description, Bottom, StatsWrapper, UserInfoWrapper, Repo, Followers, Following, UserInfo, Icon, Info } from '../Styles/Result.styled'
 import ProfilePic from '../assets/pofilePic.jpeg'
 import {ReactComponent as Location }from '../assets/icon-location.svg'
-import Twitter from '../assets/icon-twitter.svg'
-import Website from '../assets/icon-website.svg'
-import Company from '../assets/icon-company.svg'
+import {ReactComponent as Twitter} from '../assets/icon-twitter.svg'
+import{ReactComponent as Website} from '../assets/icon-website.svg'
+import {ReactComponent as Company} from '../assets/icon-company.svg'
 import { connect } from 'react-redux'
 import moment from 'moment'
 import Loading from './Loading'
@@ -62,15 +62,15 @@ const Result = (props) => {
             <Info>{githubUser.payload.location ? githubUser.payload.location : 'Not Available'}</Info>
           </UserInfo>
           <UserInfo>
-            <Icon src={Twitter}/>
+            <Twitter/>
             <Info>{githubUser.payload.twitter_username ? githubUser.payload.twitter_username : 'Not Available'}</Info>
           </UserInfo>
           <UserInfo>
-            <Icon src={Website}/>
+            <Website/>
             <Info>{githubUser.payload.html_url ? githubUser.payload.html_url : 'Not Available'}</Info>
           </UserInfo>
           <UserInfo>
-          <Icon src={Company}/>
+          <Company/>
             <Info>{githubUser.payload.company ? githubUser.payload.company : 'Not Available'}</Info>
             </UserInfo>
         </UserInfoWrapper>

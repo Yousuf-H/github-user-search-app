@@ -159,7 +159,6 @@ export const UserInfo = styled.div`
   color: ${props => props.theme.fontColor};
   `
 export const Icon = styled.img`
-  color: yellow;
   fill: green;
   width: 20px;
   height: 22px;
