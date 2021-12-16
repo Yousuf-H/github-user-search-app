@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 50vw;
-  min-width: 560px;
-  height: 650px;
+  width: 70vw;
+  max-width: 730px;
+  height: 600px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  /* border: 2px red solid; */
+  justify-content: space-between;
+
+  @media only screen and (max-width: 768px) {
+    height: 700px;
+  }
 `
 export const ThemeMode = styled.div`
   display: flex;

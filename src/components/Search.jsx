@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Container, SearchIcon, SearchInput, Error, SearchButton, Left, Right } from '../Styles/Search.styled';
 import SearchSVG from '../assets/icon-search.svg'
 import { getUserAction } from '../redux/actions/userInfoAction'
@@ -11,10 +11,6 @@ const Search = (props) => {
   const changeHandler = (e) => {
     setSearchValue(e.target.value)
   }
-
-  // useEffect(() => {
-  //   dispatch(getUserAction(searchValue))
-  // }, [searchValue, dispatch])
 
   const clickhandler = () => {
     if (searchValue){

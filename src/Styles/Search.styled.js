@@ -6,7 +6,7 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: ${props => props.theme.SearchContainerColor};
-  padding: 20px;
+  padding: 20px 10px;
   border-radius: 15px;
   box-shadow: 0px 5px 10px ${props => props.theme.searchBoxShadow};
 `
@@ -15,9 +15,10 @@ export const Left = styled.div`
   display: flex;
   width: 440px;
   align-items: center;
+  margin-left: 15px;
 `
 
-export const Right = styled.div`
+export const Right = styled.div`  
   display: flex;
   width: 230px;
   justify-content: space-between;
@@ -40,7 +41,7 @@ export const SearchInput = styled.input`
   background-color: transparent;
   
   &::placeholder {
-    color: ${props => props.theme.placeholderColor};
+    /* color: ${props => props.theme.placeholderColor}; */
   }
 
   &:focus {

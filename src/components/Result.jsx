@@ -24,7 +24,10 @@ const Result = (props) => {
         {/* Profile Info */}
         <ProfileWrapper>
           <TitleWrapper>
-            <UserName>{githubUser.payload.name ? githubUser.payload.name : 'The Octocat'}</UserName>
+            <UserName>
+              {githubUser.payload.name ? githubUser.payload.name : 'The Octocat'}
+              <AccountName>@{githubUser.payload.login ? githubUser.payload.login  :'octocat'}</AccountName>
+            </UserName>
             <Date>
               Joined {githubUser.payload.created_at ? 
               moment(githubUser.payload.created_at).format('Do MMMM YYYY')
@@ -32,11 +35,10 @@ const Result = (props) => {
               '25 Jan 2011'}
             </Date>
           </TitleWrapper>
-          <AccountName>@{githubUser.payload.login ? githubUser.payload.login  :'octocat'}</AccountName>
-          <Description>
-            {githubUser.payload.bio ? githubUser.payload.bio : 'This profile has no bio'}
-          </Description>
         </ProfileWrapper>
+        <Description>
+            {githubUser.payload.bio ? githubUser.payload.bio : 'This profile has no bio'}
+        </Description>
       </Top>
 
       {/* Botom Half */}
@@ -58,19 +60,30 @@ const Result = (props) => {
 
         <UserInfoWrapper>
           <UserInfo>
-            <Location/>
+            <Icon>
+              <Location />
+            </Icon>
             <Info>{githubUser.payload.location ? githubUser.payload.location : 'Not Available'}</Info>
           </UserInfo>
+
           <UserInfo>
-            <Twitter/>
+            <Icon>
+              <Twitter/>
+            </Icon>
             <Info>{githubUser.payload.twitter_username ? githubUser.payload.twitter_username : 'Not Available'}</Info>
           </UserInfo>
+
           <UserInfo>
-            <Website/>
+            <Icon>
+              <Website />
+            </Icon>
             <Info>{githubUser.payload.html_url ? githubUser.payload.html_url : 'Not Available'}</Info>
           </UserInfo>
+
           <UserInfo>
-          <Company/>
+            <Icon>
+              <Company/>
+            </Icon>
             <Info>{githubUser.payload.company ? githubUser.payload.company : 'Not Available'}</Info>
             </UserInfo>
         </UserInfoWrapper>
